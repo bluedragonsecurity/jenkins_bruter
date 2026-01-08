@@ -36,7 +36,7 @@ def validate_user_login(driver, target_url, username, password):
     if "Invalid username or password" not in driver.page_source and "loginError" not in url_sekarang:
         if "security_check" in url_sekarang or "Not Found" in driver.page_source or "security_check" in driver.page_source:
             driver.get(target_url)
-            wait = WebDriverWait(driver, 5)
+            wait = WebDriverWait(driver, 6)
             time.sleep(6)
         elif "j_username" in driver.page_source and "j_password" in driver.page_source:
             time.sleep(0.1)
@@ -53,6 +53,10 @@ def login(driver,username, password, target_url):
     try:
         username_field = driver.find_element(By.ID, "j_username")
     except:
+        print("[+] refreshing page")
+        driver.get(target_url)
+        wait = WebDriverWait(driver, 6)
+        time.sleep(6)
         try:
             username_field = wait.until(EC.visibility_of_element_located((By.NAME, "j_username")))
         except Exception as e:
