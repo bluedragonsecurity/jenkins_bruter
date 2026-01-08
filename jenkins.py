@@ -63,7 +63,7 @@ else:
             try:
                 password_field = wait.until(EC.visibility_of_element_located((By.NAME, "j_password")))
             except:
-                sername_field = driver.find_element(By.ID, "j_password")
+                password_field = driver.find_element(By.ID, "j_password")
             password_field.clear()
             password_field.send_keys(password)
             time.sleep(1)
