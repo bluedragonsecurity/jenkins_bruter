@@ -8,8 +8,8 @@ This tool is used for brute forcing jenkins web login using default username adm
 
 Usage : 
 
-./jenkins.py <target_jenkins_login_url> <wordlist_path>
+./jenkins.py <target_jenkins_login_url> <wordlist_path> <username>
 
 E.g  :
 
-./jenkins.py http://127.0.0.1:8080 jenkins.txt
+./jenkins.py http://127.0.0.1:8080 jenkins.txt admin
